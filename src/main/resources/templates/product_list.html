@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список товаров</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Это список товаров</h1>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>Название</td>
+            <td>Стоимость</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}">23</td>
+            <td th:text="${product.title}">Авокадо</td>
+            <td th:text="${product.coast}">394</td>
+            <td><form method="post" th:action="@{${'/del/' + product.id}}">
+                <button type="submit" class="btn btn-danger">X</button>
+            </form></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
