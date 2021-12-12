@@ -46,6 +46,6 @@ public class ProductController {
                             @RequestParam String title,
                             @RequestParam Float coast) {
     productService.save(new Product(id, title, coast));
-    return "redirect:all";
+    return "redirect:/all";
   }
 }
